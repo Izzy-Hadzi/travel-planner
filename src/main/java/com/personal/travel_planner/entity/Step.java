@@ -1,6 +1,6 @@
 package com.personal.travel_planner.entity;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -26,7 +26,7 @@ public class Step {
         joinColumns = @JoinColumn(name = "step_id"),
         inverseJoinColumns = @JoinColumn(name = "activity_id")
     )
-    private ArrayList<Activity> activities;
+    private List<Activity> activities;
 
     public Step(){
 
@@ -36,7 +36,6 @@ public class Step {
         this.country = country;
         this.duration = 1;
         this.hotel = "";
-        this.activities = new ArrayList<Activity>();
     }
 
     public String getCity(){
@@ -55,7 +54,7 @@ public class Step {
         return this.hotel;
     }
 
-    public ArrayList<Activity> getActivities(){
+    public List<Activity> getActivities(){
         return this.activities;
     }
 

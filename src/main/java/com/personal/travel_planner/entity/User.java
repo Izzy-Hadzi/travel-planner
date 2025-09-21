@@ -1,8 +1,7 @@
 package com.personal.travel_planner.entity;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,7 +32,7 @@ public class User {
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "trip_id")
     )
-    private ArrayList<Trip> loggedTrips;
+    private List<Trip> loggedTrips;
     private TravellerType type;
 
     public User(){
@@ -46,7 +45,6 @@ public class User {
         this.password = password;
         this.birthday = birthday;
         this.createdAt = LocalDateTime.now();
-        this.loggedTrips = new ArrayList<Trip>();
         this.type = TravellerType.BASIC;
     }
 
@@ -71,7 +69,7 @@ public class User {
     public LocalDateTime getCreatedAt(){
         return this.createdAt;
     }
-    public ArrayList<Trip> getTrips(){
+    public List<Trip> getLoggedTrips(){
         return this.loggedTrips;
     }
     public TravellerType getType(){

@@ -1,7 +1,7 @@
 package com.personal.travel_planner.entity;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -36,7 +36,7 @@ public class Trip {
         joinColumns = @JoinColumn(name = "trip_id"),
         inverseJoinColumns = @JoinColumn(name = "step_id")
     )
-    private ArrayList<Step> steps;
+    private List<Step> steps;
 
     public Trip(){
 
@@ -46,7 +46,6 @@ public class Trip {
         this.createdAt = LocalDateTime.now();
         //this.savedBy = new ArrayList<User>();
         this.duration = 1;
-        this.steps = new ArrayList<Step>();
     }
 
     public User getCreatedBy(){
@@ -61,12 +60,16 @@ public class Trip {
         return this.duration;
     }
 
-    public ArrayList<Step> getSteps(){
+    public List<Step> getSteps(){
         return this.steps;
     }
 
     public void setDuration(int newduration){
         this.duration = newduration;
+    }
+
+    public void setCreatedBy(User user){
+        this.createdBy = user;
     }
 
     //public void addSave(User user){
