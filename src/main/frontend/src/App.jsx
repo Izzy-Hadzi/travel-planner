@@ -1,23 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, Router, Routes, Route, Page} from 'react'
 import './App.css'
+import Navbar from './components/NavBar.jsx'
+import CreationForm from './components/creationForm.jsx'
+import Dashboard from './components/Dashboard.jsx'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  //const [count, setCount] = useState(0);
+  const [currentUser, setCurrentUser] = useState(null)
+  const [userTrips, setUserTrips] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
+
 
   return (
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Page color="#4281A4" />} />
-          <Route path="/account" element={<Page color="#48A9A6" />} />
-          <Route path="/plannew" element={<Page color="#E4DFDA" />} />
-          <Route path="/mytrips" element={<Page color="#D4B483" />} />
-          <Route path="/aboutus" element={<Page color="#C1666B" />} />
-        </Routes>
-      </Router>
+    <div className="App">
+      {error && (
+        <div className="error">
+          {error}
+          <button onClick={() => setError(null)}>Dismiss</button>
+        </div>
+      )}
+      
+      {currentUser ? <Dashboard currentUser={currentUser} setCurrentUser={setCurrentUser} userTrips={userTrips} setUserTrips={setUserTrips} setLoading={setLoading} loading={loading} setError={setError}/> : <CreationForm setCurrentUser={setCurrentUser} setUserTrips={setUserTrips} setError={setError} setLoading={setLoading} loading={loading}/>}
+    </div>
     );
 }
 
-export default App
+export default App;

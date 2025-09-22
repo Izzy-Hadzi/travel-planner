@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const menuRef = useRef<HTMLUListElement | null>(null);
-  const hamburgerRef = useRef<HTMLDivElement | null>(null);
+  const menuRef = useRef(null);
+  const hamburgerRef = useRef(null);
 
   const toggleMenu = () => setIsOpen(prev => !prev);
   const closeMenu = () => setIsOpen(false);
@@ -33,11 +33,11 @@ function Navbar() {
     <nav className="navbar">
       <div className="navbar-container">
         <ul className="navbar-menu">
-          <li><Link to="/">Page 1</Link></li>
-          <li><Link to="/page2">Page 2</Link></li>
-          <li><Link to="/page3">Page 3</Link></li>
-          <li><Link to="/page4">Page 4</Link></li>
-          <li><Link to="/page5">Page 5</Link></li>
+          <li><a href="/">Page 1</a></li>
+          <li><a href="/page2">Page 2</a></li>
+          <li><a href="/page3">Page 3</a></li>
+          <li><a href="/page4">Page 4</a></li>
+          <li><a href="/page5">Page 5</a></li>
         </ul>
 
         <div className="navbar-action">
@@ -58,11 +58,11 @@ function Navbar() {
         </div>
 
         <ul className={`navbar-mobile-menu ${isOpen ? 'active' : ''}`} ref={menuRef}>
-            <li><Link to="/" onClick={closeMenu}>Page 1</Link></li>
-            <li><Link to="/account" onClick={closeMenu}>Page 2</Link></li>
-            <li><Link to="/plannew" onClick={closeMenu}>Page 3</Link></li>
-            <li><Link to="/mytrips" onClick={closeMenu}>Page 4</Link></li>
-            <li><Link to="/aboutus" onClick={closeMenu}>Page 5</Link></li>
+            <li><a to="/" onClick={closeMenu}>Page 1</a></li>
+            <li><a to="/account" onClick={closeMenu}>Page 2</a></li>
+            <li><a to="/plannew" onClick={closeMenu}>Page 3</a></li>
+            <li><a to="/mytrips" onClick={closeMenu}>Page 4</a></li>
+            <li><a to="/aboutus" onClick={closeMenu}>Page 5</a></li>
         </ul>
       </div>
     </nav>
