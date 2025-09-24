@@ -1,5 +1,5 @@
 import React, { useState} from 'react';
-import { userAPI } from './../userApi.js';
+import { userAPI } from '../userApi.js';
 
 
 

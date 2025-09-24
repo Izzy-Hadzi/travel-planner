@@ -36,7 +36,7 @@ const Dashboard = ({currentUser, setCurrentUser, userTrips, setUserTrips, setLoa
             {showTripForm ? 'Cancel' : 'Create New Trip'}
           </button>
           <button onClick={() => setCurrentUser(null)}>
-            Switch User
+            Log Out
           </button>
         </div>
 

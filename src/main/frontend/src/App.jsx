@@ -1,7 +1,7 @@
 import { useState, Router, Routes, Route, Page} from 'react'
-import './App.css'
+import './styles/App.css'
 import Navbar from './components/NavBar.jsx'
-import CreationForm from './components/creationForm.jsx'
+import CreationForm from './components/CreationForm.jsx'
 import Dashboard from './components/Dashboard.jsx'
 
 

@@ -39,7 +39,7 @@ public class Trip {
     private List<Step> steps;
 
     public Trip(){
-
+        this.createdAt = LocalDateTime.now();
     }
     public Trip(User user){
         this.createdBy = user;
@@ -52,12 +52,20 @@ public class Trip {
         return this.createdBy;
     }
 
+    public Integer getId(){
+        return this.id;
+    }
+
     //public ArrayList<User> getSavedBy(){
     //    return this.savedBy;
     //}
 
     public int getDuration(){
         return this.duration;
+    }
+
+    public LocalDateTime getCreatedAt(){
+        return this.createdAt;
     }
 
     public List<Step> getSteps(){
